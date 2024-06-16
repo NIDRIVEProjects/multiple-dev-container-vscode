@@ -16,7 +16,17 @@ services:
       # Mount the root folder that contains .git
       - .:/workspace:cached
     command: sleep infinity
-    
+
+  dev:
+    image: alpine:edge
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
+    links:
+      - mongodb
+      - cache
+      
   mongodb:
     image: mongodb/mongodb-community-server
     restart: unless-stopped
