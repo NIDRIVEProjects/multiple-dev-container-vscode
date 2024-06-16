@@ -1,7 +1,7 @@
 {
 	"name": "Test1 Container",
 	"dockerComposeFile": ["../../docker-compose.yml"],
-	"service": "cache",
+	"service": "dev",
 	"shutdownAction": "none",
 	"workspaceFolder": "/workspace"
 }
