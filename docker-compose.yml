@@ -23,19 +23,21 @@ services:
       # Mount the root folder that contains .git
       - .:/workspace:cached
     command: sleep infinity
-    links:
-      - mongodb
-      - cache
-      
-  mongodb:
-    image: mongodb/mongodb-community-server
-    restart: unless-stopped
     networks:
       - nwk1
-    ports:
-      - 27017:27017
-    volumes:
-      - mongo_db:/data/db
+    links:
+      # - mongodb
+      - cache
+      
+  # mongodb:
+  #   image: mongodb/mongodb-community-server
+  #   restart: unless-stopped
+  #   networks:
+  #     - nwk1
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - mongo_db:/data/db
 
   cache:
     # array access with '.' is broken in v1.19.1
